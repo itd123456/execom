@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>GDFI Excom - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link rel="icon" href="global.ico">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <style>
+    
+  </style>
+
+</head>
+
+
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-60" style="width:60px; border-radius: 150px; border:none;">
+          <!-- <i class="fas fa-laugh-wink"></i> -->
+          <img src="global.ico" class="img-thumbnail">
+        </div>
+        <div class="sidebar-brand-text mx-3">GDFI Excom <sup></sup></div>
+      </a>
+
+   
+      <hr class="sidebar-divider my-0">
+
+ 
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+      <hr class="sidebar-divider">
+      <li class="nav-item">
+        <a class="nav-link" href="monthly.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Monthly</span></a>
+      </li>
+
+
+      <hr class="sidebar-divider d-none d-md-block">
+
+
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+
+    <div id="content-wrapper" class="d-flex flex-column">
+
+
+      <div id="content">
+
+
+      <br>
+
+
+        <div class="container-fluid">
+
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+          </div>
+
+          <div class="row">
+
+
+            <div class="col-xl-12 col-lg-7">
+              <div class="card shadow mb-4">
+
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Overview Released Percentage (Monthly)</h6>
+                </div>
+
+                <div class="card-body text-dark">
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="myPieChart"></canvas>
+                        <div class="mt-4 text-center small"> 
+
+                   <span class="mr-2">
+                              <i class="fas fa-circle " style="color:#4e73df"></i>
+                              GMA North
+                            </span>
+                            <span class="mr-2">
+                              <i class="fas fa-circle " style="color:#1cc88a"></i>
+                              GMA South
+                          </span>
+                            <span class="mr-2">
+                              <i class="fas fa-circle " style="color:#36b9cc"></i>
+                              North Luzon
+                       
+                        </span>
+
+                              <span class="mr-2">
+                                  <i class="fas fa-circle " style="color:red"></i>
+                  
+                           
+                                  Visayas </span>
+                              <span class="mr-2">
+                              <i class="fas fa-circle" style="color:orange"></i>
+                              Mindanao </span>
+                              
+                              <span class="mr-2">
+                              <i class="fas fa-circle " style="color:green"></i>
+
+                              Surecycle
+                              </span> 
+
+                                   
+                              <span class="mr-2">
+                                  <i class="fas fa-circle " style="color:black"></i>
+    
+                                  MBL
+                                  </span> 
+
+                                  <span class="mr-2">
+                                      <i class="fas fa-circle " style="color:yellow"></i>
+        
+                                      SME
+                                      </span> 
+   
+        
+                          </div>
+                  </div>
+                  <br>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-xl-12 col-lg-5">
+              <div class="card shadow mb-4">
+    
+          <div class="row">
+
+
+            <div class="col-lg-8 mb-4">
+
+              <div class="card shadow mb-4" id="app3">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Branches Released(This Month)</h6>
+                </div>
+                <div class="card-body">
+                 
+
+
+                  <h4 class="small font-weight-bold" v-for ="(k, v) in results"> <br>{{v}} <span class="float-right">  &#8369;  {{k}} 
+
+                    </span> <br></h4>
+
+                 
+
+         
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="col-lg-4 mb-4" id="app2">
+
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Area Released(This Month)</h6>
+                </div>
+                <div class="card-body" >
+                    <h4 class="small font-weight-bold"> GMA NORTH <span class="float-right">  &#8369; {{Month.gmanorth}}
+ 
+
+                      </span></h4><br>
+                      <h4 class="small font-weight-bold"> GMA SOUTH  <span class="float-right">  &#8369;   {{Month.gmasouth}}
+
+  
+                        </span></h4><br>
+
+                        <h4 class="small font-weight-bold">  NORTH LUZON <span class="float-right">  &#8369;  {{Month.northluzon}}
+
+                          </span></h4><br>
+
+                          <h4 class="small font-weight-bold">   VISAYAS <span class="float-right">  &#8369;   {{Month.visayas}}
+
+     
+                            </span></h4><br>
+
+
+                            <h4 class="small font-weight-bold">    MINDANAO <span class="float-right">  &#8369;   {{Month.mindanao}} 
+
+    
+                              </span></h4><br>
+                              <h4 class="small font-weight-bold">   GLOBAL SURECYCLE <span class="float-right">  &#8369;   {{Month.global}} 
+
+     
+                                </span></h4><br>
+                                <h4 class="small font-weight-bold">    MBL <span class="float-right">  &#8369;  {{Month.mbl}} 
+
+
+
+   
+                                  </span></h4><br>
+                                  <h4 class="small font-weight-bold">    GLOBAL SME <span class="float-right">  &#8369;  {{Month.globalsme}} 
+
+   
+                                    </span></h4><br>
+                </div>
+              </div>
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Area Released Count(This Month)</h6>
+                </div>
+                <div class="card-body" id = "app2">
+                  <h4 class="small font-weight-bold" v-for="(k,v) in results.mon"><br> {{v}}<span class="float-right"> {{k}} </span></h4><br> 
+                </div>
+              </div>
+
+
+
+            </div>
+
+
+            
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script>
+const url = "php/app2.php";
+
+const vm = new Vue({
+        el: '#app2',
+        data: {
+          results: [],
+          Month: [],
+          percent: [],
+          total: '',
+          totalpercent: ''
+        },
+        mounted(){
+          axios.get(url,{
+            params: {
+              ID : 123
+            }
+          }).then(response => {
+              if(response.data.Month){
+                this.Month = response.data.Month;
+
+                this.total = response.data.total_amount;
+
+                this.totalpercent = this.Month.percentage.total;
+                this.percent.gmanorth = (this.Month.percentage.gmanorth / this.totalpercent * 100).toFixed(2);
+                this.percent.gmasouth = (this.Month.percentage.gmasouth / this.totalpercent * 100).toFixed(2);
+                this.percent.northluzon = (this.Month.percentage.northluzon / this.totalpercent * 100).toFixed(2);
+                this.percent.visayas = (this.Month.percentage.visayas / this.totalpercent * 100).toFixed(2);
+                this.percent.mindanao = (this.Month.percentage.mindanao / this.totalpercent * 100).toFixed(2);
+                this.percent.global = (this.Month.percentage.global / this.totalpercent * 100).toFixed(2);
+                this.percent.mbl = (this.Month.percentage.mbl / this.totalpercent * 100).toFixed(2);
+                this.percent.globalsme = (this.Month.percentage.globalsme / this.totalpercent * 100).toFixed(2);
+
+
+
+                  delete response.data.Month;
+                  delete response.data.total_amount;
+                this.results = response.data;
+              }
+
+   Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+      Chart.defaults.global.defaultFontColor = '#858796';
+      var ctx = document.getElementById("myPieChart");
+        var myPieChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ["GMA North","GMA South", "North Luzon", "Visayas","Mindanao","Surecycle", "MBL", "SME"],
+          datasets: [{
+            data: [this.percent.gmanorth, this.percent.gmasouth, this.percent.northluzon, this.percent.visayas, this.percent.mindanao, this.percent.global,  this.percent.mbl,  this.percent.globalsme],
+            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', 'red' , 'orange', 'green', 'black', 'yellow'],
+            hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+            hoverBorderColor: "rgba(234, 236, 244, 1)",
+          }],
+        },
+        options: {
+          maintainAspectRatio: false,
+          tooltips: {
+            backgroundColor: "rgb(255,255,255)",
+            bodyFontColor: "#858796",
+            borderColor: '#dddfeb',
+            borderWidth: 1,
+            xPadding: 15,
+            yPadding: 15,
+            displayColors: false,
+            caretPadding: 10,
+          },
+          legend: {
+            display: false
+          },
+          cutoutPercentage: 80,
+        },
+      });
+
+    })
+        }
+      });
+
+
+
+      const vm2 = new Vue({
+        el: '#app3',
+        data: {
+          results: [],
+          Month: [],
+          total: ''
+        },
+        mounted() {
+          axios.get(url,{
+            params: {
+              ID : 123
+            }
+          }).then(response => {
+              if(response.data.Month){
+                this.Month = response.data.Month;
+                this.Month.total = response.data.total_amount;
+                  delete response.data.Month;
+                  delete response.data.total_amount;
+                this.results = response.data;
+              }
+          })
+        }
+      });
+
+  </script>
+  
+
+</body>
+
+</html>
